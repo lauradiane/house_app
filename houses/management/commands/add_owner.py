@@ -14,8 +14,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         if options['name']:
-            new_owner = Owner(name=options['name'])
-            new_owner.save()
-            self.stdout.write('Added owner: name=[%s]' % options['name'])
+            Owner.objects.create_owner(options['name'])
         else:
             raise CommandError('No name given for owner')
