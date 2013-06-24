@@ -20,7 +20,7 @@ class Command(BaseCommand):
                 owner_house = House.objects.get(owner=existing_owner)
                 self.stdout.write('address=[%s], owner=[%s]' % (owner_house.address, owner_house.owner.name))
             except ObjectDoesNotExist:
-                print "Owner does not exist"
+                print "No houses to display"
         else:
             for h in House.objects.all():
                 self.stdout.write('address=[%s], owner=[%s]' % (h.address, h.owner.name))
